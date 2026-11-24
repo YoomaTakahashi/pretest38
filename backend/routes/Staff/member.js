@@ -61,4 +61,61 @@ router.put('/resetPw/:id_member',verifyToken,requireRole('ฝ่ายบุค�
     }
 })
 
+router.get('/pick/:id_member',verifyToken,requireRole('ฝ่ายบุคลากร'),async (req,res) => {
+    try {
+        
+        const {id_member} = req.params
+        const [rows] = await db.query(`select * from tb_member where id_member =?`,[id_member])
+        res.json(rows[0])
+        
+
+    } catch (error) {
+        console.error("Error save",error);
+        res.status(500).json({message:"Error save"})
+    }
+})
+
+router.get('/showE',verifyToken,requireRole('ฝ่ายบุคลากร'),async (req,res) => {
+    try {
+        
+       
+        const [rows] = await db.query(`select * from tb_member where role='ผู้รับการประเมินผล' order by id_member desc`)
+        res.json(rows)
+        
+
+    } catch (error) {
+        console.error("Error save",error);
+        res.status(500).json({message:"Error save"})
+    }
+})
+
+router.get('/showC',verifyToken,requireRole('ฝ่ายบุคลากร'),async (req,res) => {
+    try {
+        
+       
+        const [rows] = await db.query(`select * from tb_member where role='กรรมการประเมิน' order by id_member desc`)
+        res.json(rows)
+        
+
+    } catch (error) {
+        console.error("Error save",error);
+        res.status(500).json({message:"Error save"})
+    }
+})
+
+router.delete('/delete/:id_member',verifyToken,requireRole('ฝ่ายบุคลากร'),async (req,res) => {
+    try {
+        
+        const {id_member} = req.params
+        const [rows] = await db.query(`delete from tb_member where id_member =?`,[id_member])
+        res.json(rows[0])
+        
+
+    } catch (error) {
+        console.error("Error save",error);
+        res.status(500).json({message:"Error save"})
+    }
+})
+
+
 module.exports = router
