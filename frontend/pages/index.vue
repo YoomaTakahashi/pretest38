@@ -138,10 +138,10 @@ const login = async()=>{
         if(remember.value)localStorage.setItem('saveUser',username.value)
         else localStorage.removeItem('saveUser')
 
-        if(res.data.statusPw)localStorage.setItem('statusPw','n')
-        else localStorage.removeItem('statusPw')
+        if(res.data.changePw)localStorage.setItem('changePw','n')
+        else localStorage.removeItem('changePw')
         alert('ดำเนินการสำเร็จ')
-        if(res.data.statusPw)useRouter().push('/Evaluatee/changePw')
+        if(res.data.changePw)useRouter().push('/Evaluatee/changePw')
         const useRole = res.data.role
         if(useRole === 'ฝ่ายบุคลากร')useRouter().push('/Staff')
         if(useRole === 'ผู้รับการประเมินผล')useRouter().push('/Evaluatee')
