@@ -141,7 +141,7 @@ const login = async()=>{
         if(res.data.changePw)localStorage.setItem('changePw','n')
         else localStorage.removeItem('changePw')
         alert('ดำเนินการสำเร็จ')
-        if(res.data.changePw)useRouter().push('/Evaluatee/changePw')
+        if(res.data.changePw)return navigateTo('/Evaluatee/changePw')
         const useRole = res.data.role
         if(useRole === 'ฝ่ายบุคลากร')useRouter().push('/Staff')
         if(useRole === 'ผู้รับการประเมินผล')useRouter().push('/Evaluatee')
