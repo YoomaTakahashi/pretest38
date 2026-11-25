@@ -32,7 +32,7 @@
                     </v-card>
                     <v-card rounded="xl" elevation="3" class="mt-3">
                         <v-text-field label="ค้นหา" v-model="search" prepend-inner-icon="mdi-magnify" class="ma-3"></v-text-field>
-                        <div class="d-flex align-center justify-center mb-3">
+                        <div class="d-flex align-center mb-3">
                             <v-icon icon="mdi-file-pdf-box" class="mx-2"></v-icon>
                             <div class="text-title-large font-weight-bold">เอกสารหรือคู่มือการประเมิน</div>
                         </div>
