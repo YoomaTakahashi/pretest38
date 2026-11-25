@@ -21,17 +21,26 @@ app.use('/api/auth',auth)
 const profile = require('./routes/profile')
 app.use('/api/profile',profile)
 
+const dash = require('./routes/dash')
+app.use('/api/dash',dash)
+
 //-------------------------------------------------------------staff api---------------------------------------------------------\\
 //-------------------------------------------------------------eva api---------------------------------------------------------\\
 
 const selfeva = require('./routes/Eva/selfeva')
 app.use('/api/Eva/selfeva',selfeva)
 
+const table = require('./routes/Eva/table')
+app.use('/api/Eva/table',table)
+
 const score_member = require('./routes/Eva/score_member')
 app.use('/api/Eva/score_member',score_member)
 
 const score_commit = require('./routes/Eva/score_commit')
 app.use('/api/Eva/score_commit',score_commit)
+
+const edit_eva = require('./routes/Eva/edit_eva')
+app.use('/api/Eva/edit_eva',edit_eva)
 
 //-------------------------------------------------------------commit api---------------------------------------------------------\\
 
