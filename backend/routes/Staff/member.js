@@ -108,7 +108,7 @@ router.delete('/delete/:id_member',verifyToken,requireRole('ฝ่ายบุ�
         
         const {id_member} = req.params
         const [rows] = await db.query(`delete from tb_member where id_member =?`,[id_member])
-        res.json(rows[0])
+        res.json({rows,message:"delete succesws"})
         
 
     } catch (error) {
