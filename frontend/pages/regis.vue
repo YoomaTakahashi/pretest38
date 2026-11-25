@@ -106,7 +106,7 @@ function validate(){
 }
 
 const saveMember = async()=>{
-    if(validate())return 
+    if(!validate())return 
     const formdata = new FormData
     formdata.append('form',JSON.stringify(form.value))
     formdata.append('pic_user',pic_user.value!)

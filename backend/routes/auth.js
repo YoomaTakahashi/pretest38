@@ -6,6 +6,7 @@ const db = require('../db')
 const jwt = require('jsonwebtoken')
 const JWT_SECRET = process.env.JWT_SECRET
 const router = express.Router()
+const {verifyToken,requireRole} = require('../Middleware/authmiddleware')
 
 router.post('/regis',async (req,res) => {
     try {
@@ -37,12 +38,33 @@ router.post('/login',async (req,res) => {
         const token = jwt.sign(
             {id_member:m.id_member,username:m.username,role:m.role},JWT_SECRET,{expiresIn:'24h'}
         )
-        const changePw = m.role === 'ผู้รับการประเมินผล' && m.statusPw === 'n'
-        res.json({token,changePw,role:m.role})
+        const statusPw = m.role === 'ผู้รับการประเมินผล' && m.statusPw === 'n'
+        res.json({token,role:m.role,statusPw})
     } catch (error) {
         console.error("error regis");
         res.status(500).json({message:"Error regis"})
         
+    }
+})
+
+router.put('/changePw',verifyToken,requireRole('ผู้รับการประเมินผล'),async (req,res) => {
+    try {
+        const id_member = req.user.id_member
+        const {oldPw,newPw} = req.body
+        const [rows] = await db.query(`select password from tb_member where id_member=?`,[id_member])
+        const m = rows[0]
+        if(!m || !oldPw || !(await bc.compare(oldPw,m.password))){
+            return res.status(400).json({message:'รหัสผ่านไม่ถูกต้อง'})
+        }
+        if(oldPw.trim() === newPw.trim()){
+            return res.status(400).json({message:'รหัสผ่านซ้ำกัน'})
+        }
+        const hash = await bc.hash(newPw,10)
+        await db.query(`update tb_member set statusPw=?,password=? where id_member=?`,['y',hash,id_member])
+        res.status(200).json({message:'Reset Password Success'})
+    } catch (error) {
+        console.error('Error put',error)
+        res.status(500).json({message:'Error put'})
     }
 })
 

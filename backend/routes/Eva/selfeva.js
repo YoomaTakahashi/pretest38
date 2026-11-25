@@ -22,7 +22,7 @@ router.get('/topic',verifyToken,requireRole('ผู้รับการปร�
         const [topics] = await db.query(`select * from tb_topic`)
         const [indicates] = await db.query(`select * from tb_indicate`)
         const result = topics.map(t=>({
-            ...t,indicates:indicates.map((i)=> i.id_topic === t.id_topic)
+            ...t,indicates:indicates.filter((i)=> i.id_topic === t.id_topic)
         }))
         res.json(result)
     } catch (error) {
@@ -47,11 +47,11 @@ router.post('/save',verifyToken,requireRole('ผู้รับการปร�
         const id_eva = evaRow.id_eva
         for(const item of scores){
             const filename = fileMap[item.file_key]
-            await db.query(`insert into tb_evadetail (id_eva,id_indicate,status_eva,detail_eva,score_member,filename) values(?,?,?,?,?,?)`,[id_eva,item.id_indicate,1,item.detail_eva,item.score,filename])
+            await db.query(`insert into tb_evadetail (id_eva,id_indicate,status_eva,detail_eva,score_member,file_eva) values(?,?,?,?,?,?)`,[id_eva,item.id_indicate,1,item.detail_eva,item.score,filename])
         }
-        const [sumRow] = await db.query(`select coalesce(sum(score_member*(select i.point_indicate from tb_indicate i where d.id_indicate=i.id_indicate)),0)as total from tb_evadetail d where d.id_eva=?`,[id_eva])
+        const [[sumRow]] = await db.query(`select coalesce(sum(score_member*(select i.point_indicate from tb_indicate i where d.id_indicate=i.id_indicate)),0)as total from tb_evadetail d where d.id_eva=?`,[id_eva])
         await db.query(`update tb_eva set status_eva=?,total_eva=? where id_eva=?`,[2,sumRow.total,id_eva])
-        req.json(scores)
+        res.status(200).json({message:'Post score Success'})
     } catch (error) {
         console.error('Error post scores',error)
         res.status(500).json({message:'Error post scores'})

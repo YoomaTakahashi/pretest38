@@ -47,6 +47,7 @@ const saveMember = async()=>{
     try {
         await axios.put(`${api}/auth/changePw`,form.value,{headers:{Authorization:`Bearer ${token}`}})
         alert('แก้ไขสำเร็จ')
+        localStorage.removeItem('statusPw')
         navigateTo('/Evaluatee')
     } catch (error) {
         console.error('Error put',error)

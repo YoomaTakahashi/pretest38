@@ -54,6 +54,7 @@ const logout = ()=>{
         return
     }
     localStorage.removeItem('token')
+    localStorage.removeItem('statusPw')
     navigateTo('/',{replace:true})
 }
 

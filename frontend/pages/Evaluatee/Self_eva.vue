@@ -31,7 +31,7 @@
                 </v-card-text>
             </v-card>
             <div class="text-center">
-                <v-btn color="#7d0c14" size="large" prepend-icon="mdi-content-save" tpye="submit">บันทึกคะแนน</v-btn>
+                <v-btn color="#7d0c14" size="large" prepend-icon="mdi-content-save" type="submit">บันทึกคะแนน</v-btn>
             </div>
         </v-form>
         <v-alert color="success" type="success" v-else-if="user.status_eva === 2 || user.status_eva === 3" variant="tonal" rounded="xl">ประเมินสำเร็จ</v-alert>
@@ -43,6 +43,7 @@
 import axios from 'axios';
 
 import { eva } from '~/API/base';
+
 
 const user = ref<any>({})
 const topics = ref<any>([])
@@ -98,6 +99,7 @@ const saveScore = async()=>{
         
     }
 }
+
 </script>
 
 <style scoped>
