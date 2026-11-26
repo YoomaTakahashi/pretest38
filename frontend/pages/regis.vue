@@ -6,7 +6,7 @@
                     <v-card rounded="xl" elevation="3">
                         <v-card-title>
                             <center><v-img src="/img/logo.png" width="20%" class="mt-3"></v-img></center>
-                            <div class="text-center font-weight-bold text-title-large mb-3">สมัครสมาชิก</div>
+                            <div class=" font-weight-bold text-title-large mb-3">สมัครสมาชิก</div>
                             <div class="text-center font-weight-bold text-title-large text-medium-emphasis">NTC Evaluation System</div>
                         </v-card-title>
                         <v-card-text>

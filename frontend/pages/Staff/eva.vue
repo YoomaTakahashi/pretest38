@@ -6,14 +6,14 @@
                     <page-header title="จัดการแบบประเมิน" subtitle="จัดการข้อมูลแบบประเมิน" icon="mdi-file-document-edit"></page-header>
                     <v-card rounded="xl" elevation="3">
                         <v-card-title>
-                            <div class="text-center font-weight-bold text-title-large mb-3"><v-avatar color="#647687" :icon="form.id_eva ? 'mdi-pencil':'mdi-plus'"></v-avatar>จัดการแบบประเมิน</div>
+                            <div class=" font-weight-bold text-title-large mb-3"><v-avatar color="#647687" :icon="form.id_eva ? 'mdi-pencil':'mdi-plus'"></v-avatar>จัดการแบบประเมิน</div>
                         </v-card-title>
                         <v-card-text>
                             <br>
                             <v-form @submit.prevent="saveMember">
                                 <v-row>
                                     <v-col cols="12" md="6"> 
-                                        <v-select label="ผู้รับการประเมินผล" v-model="form.id_member" :error-messages="error.id_member" variant="outlined" rounded="lg" :items="member.map((t)=>({title:`${t.fname} ${t.lname}`,value:t.id_member}))"></v-select>
+                                        <v-select label="ผู้รับการประเมินผล" v-model="form.id_member" :error-messages="error.id_member" variant="outlined" rounded="lg" :items="eva.map((t)=>({title:`${t.fname} ${t.lname}`,value:t.id_member}))"></v-select>
                                     </v-col>
                                     <v-col cols="12" md="6"> 
                                         <v-select label="รอบการประเมิน" v-model="form.id_sys" :error-messages="error.id_sys" variant="outlined" rounded="lg" :items="round.map((t)=>({title:`รอบการประเมินที่:${t.round_sys} ปี:${t.year_sys}`,value:t.id_sys}))"></v-select>

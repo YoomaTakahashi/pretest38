@@ -6,7 +6,7 @@
                     <page-header title="จัดการรอบการประเมิน" subtitle="จัดการข้อมูลรอบการประเมิน" icon="mdi-clock-alert"></page-header>
                     <v-card rounded="xl" elevation="3">
                         <v-card-title>
-                            <div class="text-center font-weight-bold text-title-large mb-3"><v-avatar color="#647687" :icon="form.id_sys ? 'mdi-pencil':'mdi-plus'"></v-avatar>จัดการรอบการประเมิน</div>
+                            <div class=" font-weight-bold text-title-large mb-3"><v-avatar color="#647687" :icon="form.id_sys ? 'mdi-pencil':'mdi-plus'"></v-avatar>จัดการรอบการประเมิน</div>
                         </v-card-title>
                         <v-card-text>
                             <br>

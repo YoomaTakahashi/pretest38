@@ -6,7 +6,7 @@
                     <page-header title="จัดการกรรมการประเมิน" subtitle="จัดการข้อมูลกรรมการประเมิน" icon="mdi-account-star"></page-header>
                     <v-card rounded="xl" elevation="3">
                         <v-card-title>
-                            <div class="text-center font-weight-bold text-title-large mb-3"><v-avatar color="#647687" :icon="form.id_member ? 'mdi-pencil':'mdi-plus'"></v-avatar>จัดการกรรมการประเมิน</div>
+                            <div class=" font-weight-bold text-title-large mb-3"><v-avatar color="#647687" :icon="form.id_member ? 'mdi-pencil':'mdi-plus'"></v-avatar>จัดการกรรมการประเมิน</div>
                         </v-card-title>
                         <v-card-text>
                             <br>

@@ -6,7 +6,7 @@
                     <page-header title="จัดการผู้รับการประเมินผล" subtitle="จัดการข้อมูลผู้รับการประเมินผล" icon="mdi-account-school"></page-header>
                     <v-card rounded="xl" elevation="3">
                         <v-card-title>
-                            <div class="text-center font-weight-bold text-title-large mb-3"><v-avatar color="#647687" :icon="form.id_member ? 'mdi-pencil':'mdi-plus'"></v-avatar>จัดการผู้รับการประเมินผล</div>
+                            <div class=" font-weight-bold text-title-large mb-3"><v-avatar color="#647687" :icon="form.id_member ? 'mdi-pencil':'mdi-plus'"></v-avatar>จัดการผู้รับการประเมินผล</div>
                         </v-card-title>
                         <v-card-text>
                             <br>

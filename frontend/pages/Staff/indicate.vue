@@ -6,7 +6,7 @@
                     <page-header title="จัดการตัวชี้วัด" subtitle="จัดการข้อมูลตัวชี้วัด" icon="mdi-chart-box-outline"></page-header>
                     <v-card rounded="xl" elevation="3">
                         <v-card-title>
-                            <div class="text-center font-weight-bold text-title-large mb-3"><v-avatar color="#647687" :icon="form.id_indicate ? 'mdi-pencil':'mdi-plus'"></v-avatar>จัดการตัวชี้วัด</div>
+                            <div class=" font-weight-bold text-title-large mb-3"><v-avatar color="#647687" :icon="form.id_indicate ? 'mdi-pencil':'mdi-plus'"></v-avatar>จัดการตัวชี้วัด</div>
                         </v-card-title>
                         <v-card-text>
                             <br>

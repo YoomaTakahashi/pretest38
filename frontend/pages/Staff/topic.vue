@@ -6,7 +6,7 @@
                     <page-header title="จัดการหัวข้อการประเมิน" subtitle="จัดการข้อมูลหัวข้อการประเมิน" icon="mdi-format-list-bulleted"></page-header>
                     <v-card rounded="xl" elevation="3">
                         <v-card-title>
-                            <div class="text-center font-weight-bold text-title-large mb-3"><v-avatar color="#647687" :icon="form.id_topic ? 'mdi-pencil':'mdi-plus'"></v-avatar>จัดการหัวข้อการประเมิน</div>
+                            <div class=" font-weight-bold text-title-large mb-3"><v-avatar color="#647687" :icon="form.id_topic ? 'mdi-pencil':'mdi-plus'"></v-avatar>จัดการหัวข้อการประเมิน</div>
                         </v-card-title>
                         <v-card-text>
                             <br>
