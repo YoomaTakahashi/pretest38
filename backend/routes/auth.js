@@ -61,7 +61,7 @@ router.put('/changePw',verifyToken,requireRole('ผู้รับการป�
         }
         const hash = await bc.hash(newPw,10)
         await db.query(`update tb_member set statusPw=?,password=? where id_member=?`,['y',hash,id_member])
-        res.status(200).json({message:'Reset Password Success'})
+        res.status(201).json({message:'Reset Password Success'})
     } catch (error) {
         console.error('Error put',error)
         res.status(500).json({message:'Error put'})

@@ -53,7 +53,7 @@ router.post('/save/:id_eva',verifyToken,requireRole('กรรมการปร
             await db.query(`insert into tb_evadetail (id_eva,id_indicate,status_eva,score_commit) values(?,?,?,?)`,[id_eva,item.id_indicate,statusCommit,item.score])
         }
         const [[sumRow]] = await db.query(`select coalesce(sum(score_commit*(select i.point_indicate from tb_indicate i where d.id_indicate=i.id_indicate)),0)as total from tb_evadetail d where d.id_eva=?`,[id_eva])
-        await db.query(`update tb_eva set status_eva=?,total_eva=? where id_eva=?`,[2,sumRow.total,id_eva])
+        await db.query(`update tb_eva set total_commit=? where id_eva=?`,[sumRow.total,id_eva])
         await db.query(`update tb_commit set status_commit=?,detail_commit=? where id_member=? and id_eva=?`,['y',detail_commit,id_member,id_eva])
         // const [sumCommit] = await db.query(`select * from tb_commit where status_commit=? and id_member=? and id_eva=?`,['y',id_member,id_eva])
         // if(sumCommit.length === 3){

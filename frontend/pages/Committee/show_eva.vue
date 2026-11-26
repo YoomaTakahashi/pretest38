@@ -3,7 +3,7 @@
         <v-container>
             <v-row justify="center">
                 <v-col cols="12" md="12">
-                    <page-header title="เอกสารหรือคู่มือการประเมิน" subtitle="จัดการเอกสารหรือคู่มือการประเมิน" icon="mdi-clipboard-edit" color="#007fff"></page-header>
+                    <page-header title="ดำเนินการประเมิน" subtitle="จัดการประเมินผ้รับการประเมิน" icon="mdi-clipboard-edit" color="#007fff"></page-header>
                     <v-card rounded="xl" elevation="3" class="mt-3">
                         <div class="d-flex align-center mb-3 mt-4">
                             <v-icon icon="mdi-account-group" class="mx-2"></v-icon>

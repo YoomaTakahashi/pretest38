@@ -51,7 +51,7 @@
 <script setup lang="ts">
 import axios from 'axios';
 
-import { api, eva } from '~/API/base';
+import { api, commit, eva } from '~/API/base';
 
 
 const user = ref<any>({})
@@ -67,9 +67,9 @@ const view = (file:string)=>{
 const fetch = async()=>{
     const token = localStorage.getItem('token')
     try {
-        const res = await axios.get(`${eva}/score_member/user/${id_eva}`,{headers:{Authorization:`Bearer ${token}`}})
+        const res = await axios.get(`${commit}/score_member/user/${id_eva}`,{headers:{Authorization:`Bearer ${token}`}})
         user.value = res.data
-        const res2 = await axios.get(`${eva}/score_member/topic/${id_eva}`,{headers:{Authorization:`Bearer ${token}`}})
+        const res2 = await axios.get(`${commit}/score_member/topic/${id_eva}`,{headers:{Authorization:`Bearer ${token}`}})
         topics.value = res2.data
     } catch (error) {
         console.error('Error get',error)
