@@ -38,6 +38,9 @@
         </v-form>
         <v-alert color="warning" type="warning" v-else-if="user.status_eva === 1" variant="tonal" rounded="xl">ยังไม่ได้ประเมินตนเอง</v-alert>
         <v-alert type="error" v-else variant="tonal" rounded="xl">ไม่มีแบบประเมิน</v-alert>
+        <div class="text-center mt-4">
+            <v-btn color="blue-grey" size="large" variant="outlined" prepend-icon="mdi-arrow-left" to="/Committee/Check_confirm">ย้อนกลับ</v-btn>
+        </div>
     </v-container>
 </template>
 

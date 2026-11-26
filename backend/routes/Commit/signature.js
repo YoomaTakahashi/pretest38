@@ -1,6 +1,6 @@
 const express = require('express')
 const path = require('path')
-const uploadDir = path.join(__dirname,'../../uploads/document')
+const uploadDir = path.join(__dirname,'../../uploads/signature')
 const db = require('../../db')
 const {verifyToken,requireRole} = require('../../Middleware/authmiddleware')
 const fs = require('fs')
@@ -21,6 +21,10 @@ router.post('/save/:id_eva',verifyToken,requireRole('กรรมการปร
         const filename = Date.now() + path.extname(file.name)
         await file.mv(path.join(uploadDir,filename))
         await db.query(`update tb_commit set signature=? where id_member=? and id_eva=?`,[filename,id_member,id_eva])
+        const [sumCommit] = await db.query(`select * from tb_commit where status_commit=? and signature is not null and id_eva=?`,['y',id_eva])
+        if(sumCommit.length === 3){
+            await db.query(`update tb_eva set status_eva=? where id_eva=?`,[3,id_eva])
+        }
         res.status(201).json({message:'Update Success'})
     } catch (error) {
         console.error("error save");

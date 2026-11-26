@@ -33,7 +33,7 @@
                             <td class="text-center">{{ scores[indicate.id_indicate]?. a ?? 'รอประธานประเมิน' }}</td>
                             <td class="text-center">{{ scores[indicate.id_indicate]?. b ?? 'รอกรรมการประเมิน' }}</td>
                             <td class="text-center">{{ scores[indicate.id_indicate]?. c ?? 'รอเลขาประเมิน' }}</td>
-                            <td class="text-center">{{ average(indicate.id_indicate) }}</td>
+                            <td class="text-center">{{ (((scores[indicate.id_indicate]?. a ?? 0)+(scores[indicate.id_indicate]?. b ?? 0)+(scores[indicate.id_indicate]?. c ?? 0))/3).toFixed(2) }}</td>
                         </tr>
                     </tbody>
                 </v-table>

@@ -40,7 +40,7 @@
                 <div class="text-title-medium font-weight-bold mb-4">ลงชื่อกรรมการประเมิน</div>
                 <v-row>
                     <v-col cols="12" md="4" v-for="commit in commits" :key="commit.id_commit" class="text-center">
-                        <v-img v-if="commit.signature" :src="signUrl(commit.signature)" height="80" class="mb-2"></v-img>
+                        <v-img v-if="commit.signature" :src="`http://localhost:3001/uploads/signature/${commit.signature}`" height="80" class="mb-2"></v-img>
                         <div v-else class="text-medium-emphasis py-6">รอ{{ commit.level_commit }}ประธาน</div>
                         <v-divider class="mb-2"></v-divider>
                         <div>{{ commit.fname }} {{ commit.lname }}</div>

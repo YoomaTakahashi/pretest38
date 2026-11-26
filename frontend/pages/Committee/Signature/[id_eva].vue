@@ -65,6 +65,10 @@
                             </v-card>
                         </v-card-text>
                     </v-card>
+
+                    <div class="text-center mt-4">
+                        <v-btn color="blue-grey" size="large" variant="outlined" prepend-icon="mdi-arrow-left" to="/Committee/Check_confirm">ย้อนกลับ</v-btn>
+                    </div>
                 </v-col>
             </v-row>
         </v-container>

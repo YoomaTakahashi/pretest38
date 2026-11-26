@@ -44,7 +44,7 @@
         <v-alert color="success" type="success" v-else-if="user.status_commit === 'y'" variant="tonal" rounded="xl">ประเมินสำเร็จ</v-alert>
         <v-alert type="error" v-else variant="tonal" rounded="xl">ไม่มีแบบประเมิน</v-alert>
         <div class="text-center mt-4">
-            <v-btn color="blue-grey" size="large" variant="outlined" prepend-icon="mdi-arrow-left" to="/Committee/Show_eva">ย้อนกลับ</v-btn>
+            <v-btn color="blue-grey" size="large" variant="outlined" prepend-icon="mdi-arrow-left" to="/Committee/Check_confirm">ย้อนกลับ</v-btn>
         </div>
     </v-container>
 </template>
