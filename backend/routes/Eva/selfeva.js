@@ -51,7 +51,7 @@ router.post('/save',verifyToken,requireRole('ผู้รับการปร�
         }
         const [[sumRow]] = await db.query(`select coalesce(sum(score_member*(select i.point_indicate from tb_indicate i where d.id_indicate=i.id_indicate)),0)as total from tb_evadetail d where d.id_eva=?`,[id_eva])
         await db.query(`update tb_eva set status_eva=?,total_eva=? where id_eva=?`,[2,sumRow.total,id_eva])
-        res.status(200).json({message:'Post score Success'})
+        res.status(201).json({message:'Post score Success'})
     } catch (error) {
         console.error('Error post scores',error)
         res.status(500).json({message:'Error post scores'})

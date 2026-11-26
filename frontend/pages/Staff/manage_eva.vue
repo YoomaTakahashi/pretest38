@@ -6,7 +6,7 @@
                     <page-header title="จัดการผู้รับการประเมินผล" subtitle="จัดการข้อมูลผู้รับการประเมินผล" icon="mdi-account-school"></page-header>
                     <v-card rounded="xl" elevation="3">
                         <v-card-title>
-                            <div class="text-center font-weight-bold text-title-large mb-3"><v-avatar color="#647687" :icon="show ? 'mdi-pencil':'mdi-plus'"></v-avatar>จัดการผู้รับการประเมินผล</div>
+                            <div class="text-center font-weight-bold text-title-large mb-3"><v-avatar color="#647687" :icon="form.id_member ? 'mdi-pencil':'mdi-plus'"></v-avatar>จัดการผู้รับการประเมินผล</div>
                         </v-card-title>
                         <v-card-text>
                             <br>
@@ -73,7 +73,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="text-body-medium text-medium-emphasis text-center" colspan="12">ไม่พบข้อมูล</td>
+                                    <td class="text-body-medium text-medium-emphasis text-center" colspan="12" v-if="result.length ===0">ไม่พบข้อมูล</td>
                                 </tr>
                             </tbody>
                         </v-table>

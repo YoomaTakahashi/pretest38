@@ -147,7 +147,7 @@ const login = async()=>{
         const useRole = res.data.role
         if(useRole === 'ฝ่ายบุคลากร')useRouter().push('/Staff')
         if(useRole === 'ผู้รับการประเมินผล')useRouter().push('/Evaluatee')
-        if(useRole === 'กรรมการประเมิน')useRouter().push('/committee')
+        if(useRole === 'กรรมการประเมิน')useRouter().push('/Committee')
         
     } catch (err:any) {
         console.error("Error login",err);

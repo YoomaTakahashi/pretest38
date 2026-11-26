@@ -24,7 +24,29 @@ app.use('/api/profile',profile)
 const dash = require('./routes/dash')
 app.use('/api/dash',dash)
 
+const docnoe = require('./routes/docnoe')
+app.use('/api/docnoe',docnoe)
+
 //-------------------------------------------------------------staff api---------------------------------------------------------\\
+
+const member = require('./routes/Staff/member')
+app.use('/api/Staff/member',member)
+
+const topic = require('./routes/Staff/topic')
+app.use('/api/Staff/topic',topic)
+
+const indicate = require('./routes/Staff/indicate')
+app.use('/api/Staff/indicate',indicate)
+
+const system = require('./routes/Staff/system')
+app.use('/api/Staff/system',system)
+
+const eva = require('./routes/Staff/eva')
+app.use('/api/Staff/eva',eva)
+
+const doc = require('./routes/Staff/doc')
+app.use('/api/Staff/doc',doc)
+
 //-------------------------------------------------------------eva api---------------------------------------------------------\\
 
 const selfeva = require('./routes/Eva/selfeva')
@@ -44,8 +66,18 @@ app.use('/api/Eva/edit_eva',edit_eva)
 
 //-------------------------------------------------------------commit api---------------------------------------------------------\\
 
+const show = require('./routes/Commit/show')
+app.use('/api/Commit/show',show)
 
-app.use((req,res)=> res.status({message:"Route not Found"}))
+const save = require('./routes/Commit/save')
+app.use('/api/Commit/save',save)
+
+const score_member2 = require('./routes/Commit/score_member')
+app.use('/api/Commit/score_member',score_member2)
+
+
+
+app.use((req,res)=> res.status(404).json({message:"Route not Found"}))
 app.listen(3001,()=>{
     console.log("Server Running on Port 3001");
     
